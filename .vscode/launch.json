@@ -10,8 +10,14 @@
       "cwd": "${workspaceFolder}/Backend",
       "stopAtEntry": false,
       "preLaunchTask": "Build-Backend",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(http://\\S+)",
+        "uriFormat": "%s/swagger/"
+      },
       "env": {
-        "ASPNETCORE_URLS": "http://localhost:3000"
+        "ASPNETCORE_URLS": "http://localhost:3000/",
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     {
