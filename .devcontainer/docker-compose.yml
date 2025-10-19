@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  dev:
+    build:
+      context: ./
+      args:
+        VARIANT: "9.0"
+    image: cursor-csharp
+    container_name: cursor-csharp-dev
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+  mongo:
+    image: mongo:7.0.4
+    container_name: mongo
+    volumes:
+      - ../.devcontainer/mongo/db:/data/db
+    env_file:
+      - mongo/mongo.env
